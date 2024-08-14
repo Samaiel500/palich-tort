@@ -1,5 +1,5 @@
-@import url(css/bootstrap-reboot.min.css);
-@import url(css/font.css);
+@import url(../css/bootstrap-reboot.min.css);
+@import url(../css/font.css);
 
 :root {
     --main-color: #950a2b;

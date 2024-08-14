@@ -1,5 +1,5 @@
-@import url(/css/bootstrap-reboot.min.css);
-@import url(/css/font.css);
+@import url(css/bootstrap-reboot.min.css);
+@import url(css/font.css);
 
 :root {
     --main-color: #950a2b;
@@ -223,7 +223,7 @@ a:hover {
 .hero {
     padding-top: 40px;
     padding-bottom: 30px;
-    background-image: url(/img/main-bg.png);
+    background-image: url(../img/main-bg.png);
     background-size: 100% 100%;
     background-repeat: repeat-x;
 }

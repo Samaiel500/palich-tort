@@ -5,13 +5,14 @@
     --main-color: #950a2b;
     --purple-color: #f1e2df;
     --gray-color: #576169;
+    --light-gray-color: #F6F6F6;
     --black-color: #000000;
     --container-padding: 15px;
     --transition: .2s ease-in-out;
 }
 
 body {
-    font: 400 24px / 1.5 "Myriad Pro", sans-serif;
+    font: 400 24px / 1.2 "Myriad Pro", sans-serif;
     letter-spacing: 0.02em;
     color: var(--black-color);
 }
@@ -36,6 +37,19 @@ a:hover {
     color: #c30838;
 }
 
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
 .btn-reset {
     border: none;
     background: none;
@@ -57,6 +71,12 @@ a:hover {
     color: var(--main-color);
     text-decoration: none;
     min-height: 60px;
+    transition: all ease .3s;
+}
+
+.btn:hover {
+    color: #ffffff;
+    background-color: var(--main-color);
 }
 
 .layout {
@@ -64,6 +84,10 @@ a:hover {
     flex-direction: column;
     overflow: hidden;
     position: relative;
+}
+
+.layout-bg {
+    background: url(../img/layout-bg.png);
 }
 
 .container {
@@ -124,7 +148,8 @@ a:hover {
 }
 
 .header-nav {
-    padding: 30px 0 40px;
+    background-color: #ffffff;
+    padding: 30px 10px 40px;
 }
 
 .header-nav__list {
@@ -208,7 +233,7 @@ a:hover {
 .header-nav.open {
     opacity: 1;
     visibility: visible;
-    right: 0;
+    top: 0;
     z-index: 100;
 }
 
@@ -274,9 +299,181 @@ a:hover {
     text-align: center;
 }
 
+.constructor {
+    background-color: #ffffff;
+    padding: 60px 34px;
+    display: flex;
+    justify-content: center;
+    gap: 30px 75px;
+}
+
+.constructor__img {
+    position: relative;
+    background-color: var(--light-gray-color);
+    max-width: 596px;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.constructor__img::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 4px solid #fff;
+}
+
+.constructor__title {
+    font: 600 44px / 1.2 "Myriad Pro", normal;
+    color: var(--main-color);
+    margin-bottom: 18px;
+}
+
+.constructor__step-title {
+    font: 600 16px / 0.875 "Myriad Pro", normal;
+    text-transform: uppercase;
+    color: var(--gray-color);
+}
+
+.constructor__step-count {
+    font: 400 14px / 1 "Myriad Pro", normal;
+    text-align: right;
+    color: var(--gray-color);
+}
+
+.constructor__step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.constructor__action {
+    padding-right: 90px;
+}
+
+.constructor__header {
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--gray-color);
+}
+
+.constructor__body {
+    padding: 40px 0;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.group:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.radio__label {
+    position: relative;
+    padding-left: 45px;
+    font: 400 18px / 1 "Myriad Pro", normal;
+    color: var(--gray-color);
+    cursor: pointer;
+}
+
+.radio__label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--purple-color);
+    border-radius: 100%;
+}
+
+.radio__input:checked + .radio__label::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--main-color);
+    border-radius: 100%;
+}
+
+.textarea__input {
+    border: 1px solid var(--gray-color);
+    width: 100%;
+    min-height: 67px;
+    resize: none;
+    padding: 12px 14px;
+    font: 400 14px / 1 "Myriad Pro", normal;
+}
+
+.textarea__input::placeholder {
+    font: italic 400 14px / 1 "Myriad Pro", normal;
+    color: #8a8e92;
+}
+
+.constructor__footer {
+    padding-top: 30px;
+    border-top: 1px dashed var(--gray-color);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total-price {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.total-price__label {
+    font: 600 16px / 0.875 "Myriad Pro", normal;
+    text-transform: uppercase;
+    color: var(--gray-color);
+}
+
+.total-price__num {
+    font: 600 24px / 1.2 "Myriad Pro", normal;
+    text-transform: uppercase;
+    color: var(--main-color);
+    flex-shrink: 0;
+}
+
+.total-price__info {
+    cursor: pointer;
+    position: relative;
+    top: -10px;
+    display: inline-block;
+}
+
+.constructor__btn {
+    max-width: 180px;
+    min-height: 52px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
 @media (max-width: 1500px) {
     .hero__img {
         max-width: 300px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .constructor__action {
+        padding-right: 30px;
     }
 }
 
@@ -285,11 +482,12 @@ a:hover {
         opacity: 0;
         visibility: hidden;
         position: fixed;
-        top: 0;
-        right: -500px;
+        top: -500px;
+        right: 0;
+        left: 0;
         background-color: var(--purple-color);
         padding: 30px 20px 10px;
-        border-radius: 20px 0 0 20px;
+        border-radius: 0 0 20px 20px;
         transition: all .4s ease;
     }
 
@@ -324,6 +522,10 @@ a:hover {
     .about__inner {
         grid-template-columns: 1fr;
     }
+
+    .constructor {
+        gap: 30px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -341,6 +543,18 @@ a:hover {
 
     .hero__img {
         max-width: 400px;
+    }
+
+    .constructor {
+        flex-direction: column;
+    }
+
+    .constructor__img {
+        margin: 0 auto;
+    }
+
+    .constructor__action {
+        padding-right: 0;
     }
 }
 
@@ -372,6 +586,14 @@ a:hover {
     .hero__btn {
         margin: 0 auto;
     }
+
+    .constructor__title {
+        font-size: 36px;
+    }
+
+    .constructor__img img {
+        max-width: 80%;
+    }
 }
 
 @media (max-width: 576px) {
@@ -380,4 +602,7 @@ a:hover {
         justify-content: center;
     }
     
+    .constructor__footer {
+        flex-direction: column;
+    }
 }
